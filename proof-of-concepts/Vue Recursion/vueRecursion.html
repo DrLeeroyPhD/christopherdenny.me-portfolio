@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>MicroModal File Browser</title>
+
+    <link rel="stylesheet" href="css/modalStyle.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--
+      This is only a proof of concept which borrows a lot of the code and styling from the
+      library's demo with modifications written over top of it, does not reflect end product.
+    -->
+
+
+
+  </head>
+
+  <body>
+
+    <div id="appContainer">
+      <div id="desktopContainer">
+
+        <!-- MODAL TRIGGER -->
+        <!-- data-micromodal-trigger="modal-1" -->
+        <div v-for="option in desktop">
+          <a href="#" class="desktopIcon" v-on:click="option.clickyfunc">
+            <img :src="option.icon" class="desktopIconImg" alt="">
+            <p>{{ option.displayName }}</p>
+          </a>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<!-- <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+<script>
+  MicroModal.init({
+  disableScroll: true, // [5]
+  disableFocus: false, // [6]
+  awaitCloseAnimation: false, // [7]
+  debugMode: true // [8]
+  });
+</script> -->
+<script type="text/javascript" src="./js/main.js">
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+.desktopIcon {
+  width: 90px;
+}
+
+.desktopIcon p{
+  margin-left: 25px;
+  margin-top: -20px;
+}
+
+.desktopIconImg {
+  width: 90px;
+}
+
+.folderContainer a {
+  display: inline-block;
+}

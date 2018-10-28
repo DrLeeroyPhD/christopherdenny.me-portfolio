@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Christopher Denny | Web Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+
+    <div id="appContainer">
+      <div id="desktopContainer">
+
+        <div v-for="option in desktop" class="icon">
+          <a href="#">
+            <img :src="option.imgLoc" alt="">
+            <p>{{ option.displayName }}</p>
+          </a>
+        </div>
+
+
+
+      </div> <!-- end desktopContainer -->
+
+      <div id="taskbarContainer">
+        <div class="floatLeft">
+          <img src="https://via.placeholder.com/35/35" class="taskbarIcon" alt="">
+          <img src="https://via.placeholder.com/35/35" class="taskbarIcon" alt="">
+          <img src="https://via.placeholder.com/35/35" class="taskbarIcon" alt="">
+        </div>
+
+        <div class="floatRight">
+
+          <img src="https://via.placeholder.com/35/35" class="taskbarIcon" alt="">
+          <img src="https://via.placeholder.com/35/35" class="taskbarIcon" alt="">
+
+          <div id="dateTime">
+            <p>11:11</p>
+            <p>11/11/2018</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

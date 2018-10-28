@@ -22,14 +22,13 @@
         <!-- MODAL TRIGGER -->
         <!-- data-micromodal-trigger="modal-1" -->
         <div v-for="option in desktop">
-          <a href="#" class="desktopIcon" v-on:click="option.clickyfunc">
+          <a href="#" class="desktopIcon" data-micromodal-trigger="modal-1" @click="dude(option.clickyfunc)">
             <img :src="option.icon" class="desktopIconImg" alt="">
             <p>{{ option.displayName }}</p>
           </a>
         </div>
 
-
-
+        <modal-window></modal-window>
       </div>
     </div>
 
@@ -38,7 +37,7 @@
 
 <!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-<!-- <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 <script>
   MicroModal.init({
   disableScroll: true, // [5]
@@ -46,7 +45,7 @@
   awaitCloseAnimation: false, // [7]
   debugMode: true // [8]
   });
-</script> -->
+</script>
 <script type="text/javascript" src="./js/main.js">
 
 </script>

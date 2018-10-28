@@ -1,0 +1,26 @@
+- Desktop Design for Desktops
+- Mobile Design for Mobiles
+- File system created in JSON
+/***** EXAMPLE
+blog:{
+	displayName: "Blog",
+	contents: {
+		0: {
+			displayName: "End of the World",
+			date: "11-11-2011",
+			contentType: "blog",
+			content: "Lorem Ipsum ..."
+		}
+
+		1: {
+			displayName: "Why Web Dev's are Herd Animals",
+			date: "10-10-2010",
+			contentType: "blog",
+			content: "Bluh merg bacon ..."
+		}
+	}
+}
+*****/
+
+- Blog posts or portfolios can open up a "browser" using iFrame
+

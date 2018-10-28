@@ -24,3 +24,12 @@ blog:{
 
 - Blog posts or portfolios can open up a "browser" using iFrame
 
+/***** TENTATIVE ICONS *****/
+- Wifi
+- Speaker/Sound
+- Battery(?)
+- Power
+- Folder
+- [ - ] [ [] ] [ X ]
+- Terminal [>_]
+- Atom IDE (w/ WYSIWYG editor?)

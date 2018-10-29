@@ -36,8 +36,8 @@
           <img src="https://via.placeholder.com/35/35" class="taskbarIcon" alt="">
 
           <div id="dateTime">
-            <p>11:11</p>
-            <p>11/11/2018</p>
+            <p id="time">11:11</p>
+            <p id="date">11/11/2018</p>
           </div>
 
         </div>
@@ -48,5 +48,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+      var currentDate = new Date();
+
+      var date = currentDate.getDate();
+      var month = currentDate.getMonth();
+      var year = currentDate.getFullYear();
+
+      var hour = currentDate.getHours();
+      var minute = currentDate.getMinutes();
+
+      var timeString = hour + ":" + minute;
+      var dateString = month + "/" +(date + 1) + "/" + year;
+
+      document.getElementById("time").innerHTML = timeString;
+      document.getElementById('date').innerHTML = dateString;
+    </script>
   </body>
 </html>

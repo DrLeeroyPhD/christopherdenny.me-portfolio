@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>Christopher Denny | Web Developer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="./assets/css/modalStyle.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
@@ -13,11 +14,13 @@
       <div id="desktopContainer">
 
         <div v-for="option in desktop" class="icon">
-          <a href="#">
+          <a href="#" @click="showModal">
             <img :src="option.imgLoc" alt="">
             <p>{{ option.displayName }}</p>
           </a>
         </div>
+
+        <modal-window v-show="isModalVisible" @close="closeModal"></modal-window>
 
 
 

@@ -61,6 +61,8 @@
       // Help format time to turn things like 12:7 -> 12:07
       if(minute < 10){
         minute = "0" + minute.toString();
+      } else if (minute < 1) {
+        minute = "00";
       }
 
       var timeString = hour + ":" + minute;

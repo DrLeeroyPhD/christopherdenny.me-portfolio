@@ -58,6 +58,11 @@
       var hour = currentDate.getHours();
       var minute = currentDate.getMinutes();
 
+      // Help format time to turn things like 12:7 -> 12:07
+      if(minute < 10){
+        minute = "0" + minute.toString();
+      }
+
       var timeString = hour + ":" + minute;
       var dateString = month + "/" +(date + 1) + "/" + year;
 

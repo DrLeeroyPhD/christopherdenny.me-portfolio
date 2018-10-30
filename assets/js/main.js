@@ -7,12 +7,17 @@ Vue.component('modal-window', {
       this.$emit('close');
     },
   },
+  data() {
+    return {
+      activeTitle: "Folder"
+    }
+  },
   template: `
     <transition name="modal-fade">
-      <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+      <div class="modal draggable" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <header class="modal-header" id="modalTitle">
           <slot name="header">
-            <h3>Default Folder Title</h3>
+            <h3>{{ activeTitle }}</h3>
 
             <button type="button" class="btn-close" @click="close" aria-label="Close modal">
               X

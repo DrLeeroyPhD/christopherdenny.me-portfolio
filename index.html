@@ -14,7 +14,7 @@
       <div id="desktopContainer">
 
         <div v-for="option in desktop" class="icon">
-          <a href="#" @click="addWindow(); openIcon(option.displayName);">
+          <a href="#" @click="addWindow(); openIcon(option.displayName); makeDraggable();">
             <img :src="option.imgLoc" alt="">
             <p>{{ option.displayName }}</p>
           </a>

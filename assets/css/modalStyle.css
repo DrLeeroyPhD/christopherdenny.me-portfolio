@@ -20,7 +20,7 @@
   z-index: 2
 }
 
-.modal:active {
+.modal:active, .modal:target {
   z-index: 19;
 }
 

@@ -1,0 +1,75 @@
+/***************************************
+          MODAL BASE STYLING
+***************************************/
+.modal {
+  background: #FFFFFF;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  resize: both;
+  width: 40%;
+  height: 60%;
+  min-width: 300px;
+  min-height: 300px;
+  overflow: hidden;
+  position: absolute;
+  left: 28%;
+  top: 20%;
+  border: 1px solid black;
+  z-index: 2
+}
+
+.modal:active, .modal:target {
+  z-index: 19;
+}
+
+.modal-header,
+.modal-footer {
+  padding: 15px;
+  display: flex;
+}
+
+.modal-header {
+  border-bottom: 1px solid #eeeeee;
+  color: #4AAE9B;
+  justify-content: space-between;
+  margin-top: 0;
+  margin-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+
+}
+
+.modal-header h3 {
+  font-weight: normal;
+  font-size: 1em;
+}
+
+.modal-footer {
+  border-top: 1px solid #eeeeee;
+  justify-content: flex-end;
+}
+
+.modal-body {
+  position: relative;
+  padding: 20px 10px;
+  user-select: text;
+}
+
+.btn-close {
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4AAE9B;
+  background: transparent;
+}
+
+.btn-close:hover {
+  background-color: rgba(36, 36, 36, 0.19);
+}

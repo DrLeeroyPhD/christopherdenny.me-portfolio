@@ -23,6 +23,8 @@ blog:{
 *****/
 
 - Blog posts or portfolios can open up a "browser" using iFrame
+- Make modals resizable and drggable [https://draggabilly.desandro.com/]
+
 
 /***** TENTATIVE ICONS *****/
 - Wifi

@@ -3,27 +3,31 @@
 ***************************************/
 Vue.component('modal-window', {
   methods: {
-    close() {
-      this.$emit('close');
+    closeModal() {
+      this.isModalVisible = false;
     },
   },
   data() {
     return {
       activeTitle: "Folder",
+      isModalVisible: true,
     }
   },
   props: ['content'],
   template: `
     <transition name="modal-fade">
-      <div class="modal draggable" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+      <div class="modal draggable" role="dialog" aria-labelledby="modalTitle" v-show="isModalVisible" aria-describedby="modalDescription">
         <header class="modal-header handle" id="modalTitle">
-          <slot name="header">
-            <h3>File Explorer</h3>
+          <h3>
+            <slot name="header">
+              File Explorer
+            </slot>
+          </h3>
 
-            <button type="button" class="btn-close" @click="close" aria-label="Close modal">
-              X
-            </button>
-          </slot>
+          <button type="button" class="btn-close" @click="closeModal()" aria-label="Close modal">
+            X
+          </button>
+
         </header>
 
         <section class="modal-body" id="modalDescription">
@@ -48,7 +52,6 @@ Vue.component('modal-window', {
 var desktop = new Vue({
   el: '#desktopContainer',
   data: {
-    isModalVisible: false,
     windows: 0,
     open: "",
     desktop: {
@@ -79,12 +82,6 @@ var desktop = new Vue({
     },
   },
   methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    closeModal() {
-      this.isModalVisible = false;
-    },
     addWindow() {
       this.windows += 1;
     },

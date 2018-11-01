@@ -17,6 +17,11 @@
   left: 28%;
   top: 20%;
   border: 1px solid black;
+  z-index: 2
+}
+
+.modal:active {
+  z-index: 19;
 }
 
 .modal-header,

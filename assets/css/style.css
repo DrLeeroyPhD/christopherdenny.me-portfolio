@@ -54,6 +54,7 @@ body{
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+  z-index: 20;
 }
 
 .taskbarIcon {

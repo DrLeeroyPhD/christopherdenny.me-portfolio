@@ -9,15 +9,16 @@ Vue.component('modal-window', {
   },
   data() {
     return {
-      activeTitle: "Folder"
+      activeTitle: "Folder",
     }
   },
+  props: ['content'],
   template: `
     <transition name="modal-fade">
       <div class="modal draggable" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <header class="modal-header handle" id="modalTitle">
           <slot name="header">
-            <h3>{{ activeTitle }}</h3>
+            <h3>File Explorer</h3>
 
             <button type="button" class="btn-close" @click="close" aria-label="Close modal">
               X
@@ -27,12 +28,12 @@ Vue.component('modal-window', {
 
         <section class="modal-body" id="modalDescription">
           <slot name="body">
-            Default Body Content
+
           </slot>
         </section>
         <footer class="modal-footer">
           <slot name="footer">
-            Default Footer Content
+
           </slot>
         </footer>
       </div>
@@ -48,14 +49,24 @@ var desktop = new Vue({
   el: '#desktopContainer',
   data: {
     isModalVisible: false,
+    windows: 0,
+    open: "",
     desktop: {
       me: {
         displayName: "Me",
         imgLoc: "./assets/img/file-icon.png",
+        content: `
+            Hello World, this is my about me section
+        `
       },
       about: {
         displayName: "About",
         imgLoc: "./assets/img/file-icon.png"
+        /*
+        content: "<div @click="changeModalContent">
+                    <img src="./loc" />
+                  </div>"
+        */
       },
       Portfolio: {
         displayName: "Portfolio",
@@ -73,6 +84,13 @@ var desktop = new Vue({
     },
     closeModal() {
       this.isModalVisible = false;
-    }
+    },
+    addWindow() {
+      this.windows += 1;
+    },
+    openIcon(clicked) {
+      open = clicked;
+      console.log(open);
+    },
   }
 });

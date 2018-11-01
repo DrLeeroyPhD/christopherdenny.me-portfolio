@@ -14,13 +14,19 @@
       <div id="desktopContainer">
 
         <div v-for="option in desktop" class="icon">
-          <a href="#" @click="showModal">
+          <a href="#" @click="showModal(); addWindow(); openIcon(option.displayName);">
             <img :src="option.imgLoc" alt="">
             <p>{{ option.displayName }}</p>
           </a>
         </div>
 
-        <modal-window v-show="isModalVisible" @close="closeModal"></modal-window>
+        <modal-window v-show="isModalVisible" @close="closeModal" v-for="n in desktop">
+
+          <template slot="body">
+            {{ n.content }}
+          </template>
+
+        </modal-window>
 
 
 

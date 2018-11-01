@@ -1,19 +1,22 @@
 /***************************************
               MODAL DRAGGING
 ***************************************/
-// if you have multiple .draggable elements
-// get all draggie elements
-var draggableElems = document.querySelectorAll('.draggable');
-// array of Draggabillies
-var draggies = []
-// init Draggabillies
-for ( var i=0; i < draggableElems.length; i++ ) {
-  var draggableElem = draggableElems[i];
-  var draggie = new Draggabilly( draggableElem, {
-    handle: '.handle'
-  });
-  draggies.push( draggie );
-}
+function makeDraggable() {
+  // if you have multiple .draggable elements
+  // get all draggie elements
+  var draggableElems = document.querySelectorAll('.draggable');
+  // array of Draggabillies
+  var draggies = [];
+  // init Draggabillies
+  for ( var i=0; i < draggableElems.length; i++ ) {
+    var draggableElem = draggableElems[i];
+    var draggie = new Draggabilly( draggableElem, {
+      handle: '.handle'
+    });
+    draggies.push( draggie );
+  };
+  console.log("going");
+};
 
 
 

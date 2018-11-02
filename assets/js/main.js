@@ -22,6 +22,7 @@ Vue.component('modal-window', {
       activeTitle: "Folder",
       isModalVisible: true,
       levelOfFocus: 2,
+      active: active,
     }
   },
 
@@ -95,31 +96,40 @@ Vue.component('modal-window', {
 ***************************************/
 var desktop = new Vue({
   el: '#desktopContainer',
+
+  /***** DATA *****/
   data: {
     windows: 0,
     open: "",
+    active: "",
     desktop: {
       me: {
         displayName: "Me",
         imgLoc: "./assets/img/file-icon.png",
+        useWindow: "word",
         content: `
             Hello World, this is my about me section
         `
       },
       about: {
         displayName: "About",
-        imgLoc: "./assets/img/file-icon.png"
+        imgLoc: "./assets/img/file-icon.png",
+        useWindow: "word",
       },
       Portfolio: {
         displayName: "Portfolio",
-        imgLoc: "./assets/img/folder-icon.png"
+        imgLoc: "./assets/img/folder-icon.png",
+        useWindow: "portfolio",
       },
       Contact: {
         displayName: "Contact",
-        imgLoc: "./assets/img/folder-icon.png"
+        imgLoc: "./assets/img/folder-icon.png",
+        useWindow: "contact",
       }
     },
   },
+
+  /***** METHODS *****/
   methods: {
     addWindow() {
       this.windows += 1;
@@ -138,23 +148,10 @@ var desktop = new Vue({
           draggies.push( draggie );
         };
     }, 200);
+  },
+  setActive(clicked) {
+    active = clicked;
+  }
 
-
-    }
   },
 });
-
-/** **/
-Vue.directive('click-outside', {
-  bind () {
-      this.event = event => this.vm.$emit(this.expression, event)
-      this.el.addEventListener('click', this.stopProp)
-      document.body.addEventListener('click', this.event)
-  },
-  unbind() {
-    this.el.removeEventListener('click', this.stopProp)
-    document.body.removeEventListener('click', this.event)
-  },
-
-  stopProp(event) { event.stopPropagation() }
-})

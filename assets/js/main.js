@@ -109,11 +109,6 @@ var desktop = new Vue({
       about: {
         displayName: "About",
         imgLoc: "./assets/img/file-icon.png"
-        /*
-        content: "<div @click="changeModalContent">
-                    <img src="./loc" />
-                  </div>"
-        */
       },
       Portfolio: {
         displayName: "Portfolio",
@@ -128,10 +123,6 @@ var desktop = new Vue({
   methods: {
     addWindow() {
       this.windows += 1;
-    },
-    openIcon(clicked) {
-      open = clicked;
-      console.log(open);
     },
     makeDraggable(){
       setTimeout(function () {

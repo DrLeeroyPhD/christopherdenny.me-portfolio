@@ -14,20 +14,26 @@
       <div id="desktopContainer">
 
         <div v-for="option in desktop" class="icon">
-          <a href="#" @click="setActive(option.useWindow); addWindow(); makeDraggable();">
+          <a href="#" @click="setActive(option.useWindow); addWindow(); makeDraggable();" :click="option.onclick">
             <img :src="option.imgLoc" alt="">
             <p>{{ option.displayName }}</p>
           </a>
         </div>
 
-        <modal-window v-for="n in windows" :id="active">
+        <!-- <modal-window v-for="option in desktop" :id="option.displayName" :ref="option.displayName">
 
-          <template slot="body">
-            {{ n.content }}
+          <template slot="header">
+            {{ option.displayName }}
           </template>
 
-        </modal-window>
+          <template slot="body" v-html="option.content">
 
+          </template>
+
+        </modal-window> -->
+        <web-browser>
+          
+        </web-browser>
 
 
       </div> <!-- end desktopContainer -->

@@ -14,6 +14,9 @@ Vue.component('modal-window', {
     blurFocus() {
       this.levelOfFocus = 2;
     },
+    findMe() {
+      console.log(this);
+    }
   },
 
   /***** DATA *****/
@@ -22,7 +25,6 @@ Vue.component('modal-window', {
       activeTitle: "Folder",
       isModalVisible: true,
       levelOfFocus: 2,
-      active: active,
     }
   },
 
@@ -62,7 +64,7 @@ Vue.component('modal-window', {
         @click="levelOfFocus = 19;"
         v-clickoutside="blurFocus"
       >
-        <header class="modal-header handle" id="modalTitle">
+        <header class="modal-header handle" id="modalTitle" @click="findMe">
           <h3>
             <slot name="header">
               File Explorer
@@ -90,6 +92,41 @@ Vue.component('modal-window', {
   `
 });
 
+/***************************************
+              WEB BROWSER
+***************************************/
+
+Vue.component('web-browser', {
+
+  /***** DATA *****/
+  data() {
+    return {
+      webBrowserActive: "https://healthyitservices.org",
+    }
+  },
+
+  /***** METHODS *****/
+  methods: {
+    change(){
+        webBrowserActive = "http://www.christopherdenny.me";
+        document.getElementById("web-browser").src = webBrowserActive;
+    }
+  },
+
+  /***** TEMPLATE *****/
+  template: `
+    <modal-window>
+      <template slot="header">
+        Web Browser
+      </template>
+
+      <template slot="body">
+        <iframe :src="webBrowserActive" class="web-browser" id="web-browser"></iframe>
+        <button @click="change">Google</button>
+      </template>
+    </modal-window>
+  `
+});
 
 /***************************************
                   VUE
@@ -108,13 +145,16 @@ var desktop = new Vue({
         imgLoc: "./assets/img/file-icon.png",
         useWindow: "word",
         content: `
-            Hello World, this is my about me section
+            <p>Hello World, this is my about me section</p>
         `
       },
       about: {
         displayName: "About",
         imgLoc: "./assets/img/file-icon.png",
         useWindow: "word",
+        content: `
+          <h3>Word</h3>
+        `
       },
       Portfolio: {
         displayName: "Portfolio",

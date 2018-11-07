@@ -20,20 +20,23 @@
           </a>
         </div>
 
-        <!-- <modal-window v-for="option in desktop" :id="option.displayName" :ref="option.displayName">
-
+        <modal-window
+          v-for="option in desktop"
+          :id="option.displayName"
+          :ref="option.displayName"
+          :content="option.content"
+        >
           <template slot="header">
             {{ option.displayName }}
           </template>
 
-          <template slot="body" v-html="option.content">
+          <template slot="body">
 
           </template>
 
-        </modal-window> -->
-        <web-browser>
-          
-        </web-browser>
+        </modal-window>
+
+        <!-- <web-browser></web-browser> -->
 
 
       </div> <!-- end desktopContainer -->

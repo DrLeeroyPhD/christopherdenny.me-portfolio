@@ -13,8 +13,8 @@ Vue.component('modal-window', {
     },
     blurFocus() {
       this.levelOfFocus -= 1;
-      if(levelOfFocus < 2) {
-        levelOfFocus = 2;
+      if(this.levelOfFocus < 2) {
+        this.levelOfFocus = 2;
       }
     },
   },
@@ -24,7 +24,7 @@ Vue.component('modal-window', {
     return {
       activeTitle: "Folder",
       isModalVisible: true,
-      levelOfFocus: 11,
+      levelOfFocus: 20,
     }
   },
 
@@ -77,7 +77,7 @@ Vue.component('modal-window', {
 
         </header>
 
-        <section class="modal-body">
+        <section class="modal-body" v-html="content">
           <slot name="body">
 
           </slot>
@@ -139,9 +139,7 @@ var desktop = new Vue({
         displayName: "Me",
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "word",
-        content: `
-            <p>Hello World, this is my about me section</p>
-        `
+        content: "<p>Hello World, this is my about me section</p>"
       },
       apps: {
         displayName: "Applets",

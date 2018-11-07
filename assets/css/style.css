@@ -15,11 +15,12 @@ body{
 #desktopContainer {
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
   height: calc(100vh - 40px);
 }
 
 .icon {
-  width: 90px;block
+  width: 60px;
   display: inline-block;
   margin: 25px;
   max-height: 100px;
@@ -30,7 +31,7 @@ body{
 }
 
 .icon img {
-  width: 90px;
+  width: 60px;
 }
 
 .icon a {
@@ -41,6 +42,11 @@ body{
 .icon p {
   text-align: center;
   margin-top: 0;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
 }
 
 /***** TASKBAR *****/

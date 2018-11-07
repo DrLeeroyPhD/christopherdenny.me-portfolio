@@ -154,25 +154,25 @@ var desktop = new Vue({
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "fileExplorer",
         content: `
-          <div>
+          <div class="icon-container">
             <div class="icon">
               <a href="#" @click="test(OoC)">
-                <img src="./assets/img/file-icon.png" alt="">
-                <p>Origami of Code</p>
+                <img src="./assets/img/internet-icon.png" alt="">
+                <p class="icon-in-window">Origami of Code</p>
               </a>
             </div>
 
             <div class="icon">
               <a href="#" @click="test(HITS)">
-                <img src="./assets/img/file-icon.png" alt="">
-                <p>Healthy IT Services</p>
+                <img src="./assets/img/internet-icon.png" alt="">
+                <p class="icon-in-window">Healthy IT Services</p>
               </a>
             </div>
 
             <div class="icon">
               <a href="#" @click="test(meh)">
-                <img src="./assets/img/file-icon.png" alt="">
-                <p>Origami of Code</p>
+                <img src="./assets/img/internet-icon.png" alt="">
+                <p class="icon-in-window">Origami of Code</p>
               </a>
             </div>
           </div>
@@ -185,7 +185,7 @@ var desktop = new Vue({
       },
       trash: {
         displayName: "Trash",
-        imgLoc: "./assets/img/folder-icon.png",
+        imgLoc: "./assets/img/trash-icon.png",
         useWindow: "trash",
       }
     },

@@ -179,9 +179,24 @@ var desktop = new Vue({
         `
       },
       contact: {
-        displayName: "Contact",
-        imgLoc: "./assets/img/file-icon.png",
-        useWindow: "contact",
+        displayName: "Email",
+        imgLoc: "./assets/img/email-icon.png",
+        useWindow: "email",
+        content: `
+          <div class="email-window">
+            <form action="action_page.php">
+
+              <label for="sender-email">Your Email Address</label></br>
+              <input type="text" id="sender-email" name="senderEmail" placeholder="Your Email.."></br></br>
+
+              <label for="subject">Subject</label></br>
+              <textarea id="subject" name="subject" placeholder="Your Email Contents Here.." style="height:200px"></textarea></br>
+
+              <input type="submit" value="Submit">
+
+            </form>
+          </div>
+        `
       },
       trash: {
         displayName: "Trash",

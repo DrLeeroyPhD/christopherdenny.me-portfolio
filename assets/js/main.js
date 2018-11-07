@@ -12,7 +12,10 @@ Vue.component('modal-window', {
       console.log(this.levelOfFocus);
     },
     blurFocus() {
-      this.levelOfFocus = 2;
+      this.levelOfFocus -= 1;
+      if(levelOfFocus < 2) {
+        levelOfFocus = 2;
+      }
     },
   },
 
@@ -21,7 +24,7 @@ Vue.component('modal-window', {
     return {
       activeTitle: "Folder",
       isModalVisible: true,
-      levelOfFocus: 2,
+      levelOfFocus: 11,
     }
   },
 
@@ -74,7 +77,7 @@ Vue.component('modal-window', {
 
         </header>
 
-        <section class="modal-body" id="modalDescription">
+        <section class="modal-body">
           <slot name="body">
 
           </slot>
@@ -155,21 +158,21 @@ var desktop = new Vue({
         content: `
           <div>
             <div class="icon">
-              <a href="#" @click="">
+              <a href="#" @click="test(OoC)">
                 <img src="./assets/img/file-icon.png" alt="">
                 <p>Origami of Code</p>
               </a>
             </div>
 
             <div class="icon">
-              <a href="#" @click="">
+              <a href="#" @click="test(HITS)">
                 <img src="./assets/img/file-icon.png" alt="">
                 <p>Healthy IT Services</p>
               </a>
             </div>
 
             <div class="icon">
-              <a href="#" @click="">
+              <a href="#" @click="test(meh)">
                 <img src="./assets/img/file-icon.png" alt="">
                 <p>Origami of Code</p>
               </a>
@@ -212,6 +215,9 @@ var desktop = new Vue({
   },
   setActive(clicked) {
     active = clicked;
+  },
+  test(selected) {
+    console.log("Hello! You've clicked " + selected);
   }
 
   },

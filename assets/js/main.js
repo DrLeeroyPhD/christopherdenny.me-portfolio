@@ -14,9 +14,6 @@ Vue.component('modal-window', {
     blurFocus() {
       this.levelOfFocus = 2;
     },
-    findMe() {
-      console.log(this);
-    }
   },
 
   /***** DATA *****/
@@ -64,7 +61,7 @@ Vue.component('modal-window', {
         @click="levelOfFocus = 19;"
         v-clickoutside="blurFocus"
       >
-        <header class="modal-header handle" id="modalTitle" @click="findMe">
+        <header class="modal-header handle">
           <h3>
             <slot name="header">
               File Explorer
@@ -82,11 +79,6 @@ Vue.component('modal-window', {
 
           </slot>
         </section>
-        <footer class="modal-footer">
-          <slot name="footer">
-
-          </slot>
-        </footer>
       </div>
     </transition>
   `
@@ -109,20 +101,20 @@ Vue.component('web-browser', {
   methods: {
     change(){
         webBrowserActive = "http://www.christopherdenny.me";
-        document.getElementById("web-browser").src = webBrowserActive;
+        document.getElementById("web-browser-iframe").src = webBrowserActive;
     }
   },
 
   /***** TEMPLATE *****/
   template: `
-    <modal-window>
+    <modal-window id="web-browser">
       <template slot="header">
         Web Browser
       </template>
 
       <template slot="body">
-        <iframe :src="webBrowserActive" class="web-browser" id="web-browser"></iframe>
-        <button @click="change">Google</button>
+        <iframe :src="webBrowserActive" class="web-browser" id="web-browser-iframe"></iframe>
+        <a href="#" @click="change()">Google</a>
       </template>
     </modal-window>
   `
@@ -142,29 +134,58 @@ var desktop = new Vue({
     desktop: {
       me: {
         displayName: "Me",
-        imgLoc: "./assets/img/file-icon.png",
+        imgLoc: "./assets/img/folder-icon.png",
         useWindow: "word",
         content: `
             <p>Hello World, this is my about me section</p>
         `
       },
-      about: {
-        displayName: "About",
-        imgLoc: "./assets/img/file-icon.png",
-        useWindow: "word",
+      apps: {
+        displayName: "Applets",
+        imgLoc: "./assets/img/folder-icon.png",
+        useWindow: "fileExplorer",
         content: `
           <h3>Word</h3>
         `
       },
-      Portfolio: {
+      portfolio: {
         displayName: "Portfolio",
         imgLoc: "./assets/img/folder-icon.png",
-        useWindow: "portfolio",
+        useWindow: "fileExplorer",
+        content: `
+          <div>
+            <div class="icon">
+              <a href="#" @click="">
+                <img src="./assets/img/file-icon.png" alt="">
+                <p>Origami of Code</p>
+              </a>
+            </div>
+
+            <div class="icon">
+              <a href="#" @click="">
+                <img src="./assets/img/file-icon.png" alt="">
+                <p>Healthy IT Services</p>
+              </a>
+            </div>
+
+            <div class="icon">
+              <a href="#" @click="">
+                <img src="./assets/img/file-icon.png" alt="">
+                <p>Origami of Code</p>
+              </a>
+            </div>
+          </div>
+        `
       },
-      Contact: {
+      contact: {
         displayName: "Contact",
-        imgLoc: "./assets/img/folder-icon.png",
+        imgLoc: "./assets/img/file-icon.png",
         useWindow: "contact",
+      },
+      trash: {
+        displayName: "Trash",
+        imgLoc: "./assets/img/folder-icon.png",
+        useWindow: "trash",
       }
     },
   },

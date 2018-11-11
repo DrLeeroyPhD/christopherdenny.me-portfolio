@@ -139,12 +139,14 @@ var desktop = new Vue({
         displayName: "Me",
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "word",
+        isModalVisible: false,
         content: "<p>Hello World, this is my about me section</p>"
       },
       apps: {
         displayName: "Applets",
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "fileExplorer",
+        isModalVisible: false,
         content: `
           <h3>Word</h3>
         `
@@ -153,6 +155,7 @@ var desktop = new Vue({
         displayName: "Portfolio",
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "fileExplorer",
+        isModalVisible: false,
         content: `
           <div class="icon-container">
             <div class="icon">
@@ -182,6 +185,7 @@ var desktop = new Vue({
         displayName: "Email",
         imgLoc: "./assets/img/email-icon.png",
         useWindow: "email",
+        isModalVisible: false,
         content: `
           <div class="email-window">
             <form action="action_page.php">
@@ -202,6 +206,7 @@ var desktop = new Vue({
         displayName: "Trash",
         imgLoc: "./assets/img/trash-icon.png",
         useWindow: "trash",
+        isModalVisible: false,
       }
     },
   },
@@ -226,12 +231,5 @@ var desktop = new Vue({
         };
     }, 200);
   },
-  setActive(clicked) {
-    active = clicked;
-  },
-  test(selected) {
-    console.log("Hello! You've clicked " + selected);
-  }
-
   },
 });

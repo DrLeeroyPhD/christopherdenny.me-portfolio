@@ -6,10 +6,7 @@ Vue.component('modal-window', {
   /***** METHODS *****/
   methods: {
     closeModal(placeholder) {
-      // this.isModalVisible = false;
-      // console.log(placeholder);
       desktop.desktop[placeholder].isModalVisible = false;
-      console.log(desktop.desktop[placeholder]);
     },
     focusLevel() {
       console.log(this.levelOfFocus);
@@ -134,7 +131,6 @@ var desktop = new Vue({
 
   /***** DATA *****/
   data: {
-    windows: 0,
     open: "",
     active: "",
     desktop: {
@@ -216,9 +212,6 @@ var desktop = new Vue({
 
   /***** METHODS *****/
   methods: {
-    addWindow() {
-      this.windows += 1;
-    },
     makeDraggable(){
       setTimeout(function () {
         var draggableElems = document.querySelectorAll('.draggable');

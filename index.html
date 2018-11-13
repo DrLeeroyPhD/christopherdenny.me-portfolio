@@ -15,7 +15,7 @@
 
         <!-- Desktop Icons -->
         <div v-for="option in desktop" class="icon">
-          <a href="#" @click="addWindow(); makeDraggable(); option.isModalVisible = true;" :click="option.onclick">
+          <a href="#" @click="makeDraggable(); option.isModalVisible = true;" :click="option.onclick">
             <img :src="option.imgLoc" alt="">
             <p>{{ option.displayName }}</p>
           </a>

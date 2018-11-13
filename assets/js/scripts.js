@@ -40,3 +40,43 @@ function setTime(){
 }
 // Set the time on page load
 setTime();
+
+
+
+/***************************************
+        FULLSCREEN FUNCTIONALITY
+***************************************/
+function fullscreenToggle() {
+  // Checks if currently in fullscreen mode
+	var full_screen_element = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
+
+	// If no element is in full-screen
+	if(full_screen_element === null)
+		goFullscreen();
+	else
+		exitFullscreen();
+}
+
+function goFullscreen() {
+  var element = document.querySelector("body");
+
+	if(element.requestFullscreen)
+		element.requestFullscreen();
+	else if(element.mozRequestFullScreen)
+		element.mozRequestFullScreen();
+	else if(element.webkitRequestFullscreen)
+		element.webkitRequestFullscreen();
+	else if(element.msRequestFullscreen)
+		element.msRequestFullscreen();
+}
+
+function exitFullscreen() {
+	if(document.exitFullscreen)
+		document.exitFullscreen();
+	else if(document.mozCancelFullScreen)
+		document.mozCancelFullScreen();
+	else if(document.webkitExitFullscreen)
+		document.webkitExitFullscreen();
+	else if(document.msExitFullscreen)
+		document.msExitFullscreen();
+}

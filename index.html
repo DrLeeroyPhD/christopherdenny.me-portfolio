@@ -13,6 +13,7 @@
     <div id="appContainer">
       <div id="desktopContainer">
 
+        <!-- Desktop Icons -->
         <div v-for="option in desktop" class="icon">
           <a href="#" @click="addWindow(); makeDraggable(); option.isModalVisible = true;" :click="option.onclick">
             <img :src="option.imgLoc" alt="">
@@ -26,6 +27,7 @@
           :ref="option.displayName"
           :content="option.content"
           v-if="option.isModalVisible"
+          :placeholder="option.displayName"
         >
           <template slot="header">
             {{ option.displayName }}

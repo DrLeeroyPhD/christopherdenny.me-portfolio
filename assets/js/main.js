@@ -5,8 +5,11 @@ Vue.component('modal-window', {
 
   /***** METHODS *****/
   methods: {
-    closeModal() {
-      this.isModalVisible = false;
+    closeModal(placeholder) {
+      // this.isModalVisible = false;
+      // console.log(placeholder);
+      desktop.desktop[placeholder].isModalVisible = false;
+      console.log(desktop.desktop[placeholder]);
     },
     focusLevel() {
       console.log(this.levelOfFocus);
@@ -49,7 +52,7 @@ Vue.component('modal-window', {
   },
 
   /***** PROPS *****/
-  props: ['content'],
+  props: ['content', 'placeholder'],
 
   /***** TEMPLATE *****/
   template: `
@@ -71,7 +74,7 @@ Vue.component('modal-window', {
             </slot>
           </h3>
 
-          <button type="button" class="btn-close" @click="closeModal()" aria-label="Close modal">
+          <button type="button" class="btn-close" @click="closeModal(placeholder)" aria-label="Close modal">
             X
           </button>
 
@@ -114,7 +117,7 @@ Vue.component('web-browser', {
       <template slot="header">
         Web Browser
       </template>
-
+displayName
       <template slot="body">
         <iframe :src="webBrowserActive" class="web-browser" id="web-browser-iframe"></iframe>
         <a href="#" @click="change()">Google</a>
@@ -135,14 +138,14 @@ var desktop = new Vue({
     open: "",
     active: "",
     desktop: {
-      me: {
+      Me: {
         displayName: "Me",
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "word",
         isModalVisible: false,
         content: "<p>Hello World, this is my about me section</p>"
       },
-      apps: {
+      Applets: {
         displayName: "Applets",
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "fileExplorer",
@@ -151,7 +154,7 @@ var desktop = new Vue({
           <h3>Word</h3>
         `
       },
-      portfolio: {
+      Portfolio: {
         displayName: "Portfolio",
         imgLoc: "./assets/img/folder-icon.png",
         useWindow: "fileExplorer",
@@ -181,7 +184,7 @@ var desktop = new Vue({
           </div>
         `
       },
-      contact: {
+      Contact: {
         displayName: "Email",
         imgLoc: "./assets/img/email-icon.png",
         useWindow: "email",
@@ -202,7 +205,7 @@ var desktop = new Vue({
           </div>
         `
       },
-      trash: {
+      Trash: {
         displayName: "Trash",
         imgLoc: "./assets/img/trash-icon.png",
         useWindow: "trash",

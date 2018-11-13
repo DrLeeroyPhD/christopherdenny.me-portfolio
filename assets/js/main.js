@@ -24,7 +24,7 @@ Vue.component('modal-window', {
     return {
       activeTitle: "Folder",
       isModalVisible: true,
-      levelOfFocus: 20,
+      levelOfFocus: 201,
     }
   },
 
@@ -61,7 +61,7 @@ Vue.component('modal-window', {
         v-show="isModalVisible"
         aria-describedby="modalDescription"
         :style="{zIndex: levelOfFocus}"
-        @click="levelOfFocus = 19;"
+        @click="levelOfFocus = 200;"
         v-clickoutside="blurFocus"
       >
         <header class="modal-header handle">

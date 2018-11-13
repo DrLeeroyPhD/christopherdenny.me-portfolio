@@ -1,40 +1,19 @@
 - Desktop Design for Desktops
 - Mobile Design for Mobiles
-- File system created in JSON
-/***** EXAMPLE
-blog:{
-	displayName: "Blog",
-	contents: {
-		0: {
-			displayName: "End of the World",
-			date: "11-11-2011",
-			contentType: "blog",
-			content: "Lorem Ipsum ..."
-		}
 
-		1: {
-			displayName: "Why Web Dev's are Herd Animals",
-			date: "10-10-2010",
-			contentType: "blog",
-			content: "Bluh merg bacon ..."
-		}
-	}
-}
-*****/
-
-- Blog posts or portfolios can open up a "browser" using iFrame
-- Make modals resizable and drggable [https://draggabilly.desandro.com/]
+- Portfolios can open up a "browser" using iFrame
+- Make modals resizable and draggable [https://draggabilly.desandro.com/]
 
 
 /***** TENTATIVE ICONS *****/
 - Wifi
-- Speaker/Sound
+- Speaker/Sound(?)
 - Battery(?)
-- Power
+- Power or Start Menu
+- Fullscreen button
 - Folder
 - [ - ] [ [] ] [ X ]
-- Terminal [>_]
+- Terminal [>_] (?)
 - Atom IDE (w/ WYSIWYG editor?)
 
 /***** TENTATIVE TOOLS *****/
-- MicroModal.js [https://micromodal.now.sh/]

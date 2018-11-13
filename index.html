@@ -13,21 +13,33 @@
     <div id="appContainer">
       <div id="desktopContainer">
 
+        <!-- Desktop Icons -->
         <div v-for="option in desktop" class="icon">
-          <a href="#" @click="setActive(option.useWindow); addWindow(); makeDraggable();">
+          <a href="#" @click="makeDraggable(); option.isModalVisible = true;" :click="option.onclick">
             <img :src="option.imgLoc" alt="">
             <p>{{ option.displayName }}</p>
           </a>
         </div>
 
-        <modal-window v-for="n in windows" :id="active">
+        <modal-window
+          v-for="option in desktop"
+          :id="option.displayName"
+          :ref="option.displayName"
+          :content="option.content"
+          v-if="option.isModalVisible"
+          :placeholder="option.displayName"
+        >
+          <template slot="header">
+            {{ option.displayName }}
+          </template>
 
           <template slot="body">
-            {{ n.content }}
+
           </template>
 
         </modal-window>
 
+        <!-- <web-browser></web-browser> -->
 
 
       </div> <!-- end desktopContainer -->

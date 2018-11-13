@@ -5,14 +5,17 @@ Vue.component('modal-window', {
 
   /***** METHODS *****/
   methods: {
-    closeModal() {
-      this.isModalVisible = false;
+    closeModal(placeholder) {
+      desktop.desktop[placeholder].isModalVisible = false;
     },
     focusLevel() {
       console.log(this.levelOfFocus);
     },
     blurFocus() {
-      this.levelOfFocus = 2;
+      this.levelOfFocus -= 1;
+      if(this.levelOfFocus < 2) {
+        this.levelOfFocus = 2;
+      }
     },
   },
 
@@ -21,8 +24,7 @@ Vue.component('modal-window', {
     return {
       activeTitle: "Folder",
       isModalVisible: true,
-      levelOfFocus: 2,
-      active: active,
+      levelOfFocus: 20,
     }
   },
 
@@ -47,7 +49,7 @@ Vue.component('modal-window', {
   },
 
   /***** PROPS *****/
-  props: ['content'],
+  props: ['content', 'placeholder'],
 
   /***** TEMPLATE *****/
   template: `
@@ -62,34 +64,64 @@ Vue.component('modal-window', {
         @click="levelOfFocus = 19;"
         v-clickoutside="blurFocus"
       >
-        <header class="modal-header handle" id="modalTitle">
+        <header class="modal-header handle">
           <h3>
             <slot name="header">
               File Explorer
             </slot>
           </h3>
 
-          <button type="button" class="btn-close" @click="closeModal()" aria-label="Close modal">
+          <button type="button" class="btn-close" @click="closeModal(placeholder)" aria-label="Close modal">
             X
           </button>
 
         </header>
 
-        <section class="modal-body" id="modalDescription">
+        <section class="modal-body" v-html="content">
           <slot name="body">
 
           </slot>
         </section>
-        <footer class="modal-footer">
-          <slot name="footer">
-
-          </slot>
-        </footer>
       </div>
     </transition>
   `
 });
 
+/***************************************
+              WEB BROWSER
+***************************************/
+
+Vue.component('web-browser', {
+
+  /***** DATA *****/
+  data() {
+    return {
+      webBrowserActive: "https://healthyitservices.org",
+    }
+  },
+
+  /***** METHODS *****/
+  methods: {
+    change(){
+        webBrowserActive = "http://www.christopherdenny.me";
+        document.getElementById("web-browser-iframe").src = webBrowserActive;
+    }
+  },
+
+  /***** TEMPLATE *****/
+  template: `
+    <modal-window id="web-browser">
+      <template slot="header">
+        Web Browser
+      </template>
+displayName
+      <template slot="body">
+        <iframe :src="webBrowserActive" class="web-browser" id="web-browser-iframe"></iframe>
+        <a href="#" @click="change()">Google</a>
+      </template>
+    </modal-window>
+  `
+});
 
 /***************************************
                   VUE
@@ -99,41 +131,87 @@ var desktop = new Vue({
 
   /***** DATA *****/
   data: {
-    windows: 0,
     open: "",
     active: "",
     desktop: {
-      me: {
+      Me: {
         displayName: "Me",
-        imgLoc: "./assets/img/file-icon.png",
+        imgLoc: "./assets/img/folder-icon.png",
         useWindow: "word",
-        content: `
-            Hello World, this is my about me section
-        `
+        isModalVisible: false,
+        content: "<p>Hello World, this is my about me section</p>"
       },
-      about: {
-        displayName: "About",
-        imgLoc: "./assets/img/file-icon.png",
-        useWindow: "word",
+      Applets: {
+        displayName: "Applets",
+        imgLoc: "./assets/img/folder-icon.png",
+        useWindow: "fileExplorer",
+        isModalVisible: false,
+        content: `
+          <h3>Word</h3>
+        `
       },
       Portfolio: {
         displayName: "Portfolio",
         imgLoc: "./assets/img/folder-icon.png",
-        useWindow: "portfolio",
+        useWindow: "fileExplorer",
+        isModalVisible: false,
+        content: `
+          <div class="icon-container">
+            <div class="icon">
+              <a href="#" @click="test(OoC)">
+                <img src="./assets/img/internet-icon.png" alt="">
+                <p class="icon-in-window">Origami of Code</p>
+              </a>
+            </div>
+
+            <div class="icon">
+              <a href="#" @click="test(HITS)">
+                <img src="./assets/img/internet-icon.png" alt="">
+                <p class="icon-in-window">Healthy IT Services</p>
+              </a>
+            </div>
+
+            <div class="icon">
+              <a href="#" @click="test(meh)">
+                <img src="./assets/img/internet-icon.png" alt="">
+                <p class="icon-in-window">Origami of Code</p>
+              </a>
+            </div>
+          </div>
+        `
       },
-      Contact: {
-        displayName: "Contact",
-        imgLoc: "./assets/img/folder-icon.png",
-        useWindow: "contact",
+      Email: {
+        displayName: "Email",
+        imgLoc: "./assets/img/email-icon.png",
+        useWindow: "email",
+        isModalVisible: false,
+        content: `
+          <div class="email-window">
+            <form action="action_page.php">
+
+              <label for="sender-email">Your Email Address</label></br>
+              <input type="text" id="sender-email" name="senderEmail" placeholder="Your Email.."></br></br>
+
+              <label for="subject">Subject</label></br>
+              <textarea id="subject" name="subject" placeholder="Your Email Contents Here.." style="height:200px"></textarea></br>
+
+              <input type="submit" value="Submit">
+
+            </form>
+          </div>
+        `
+      },
+      Trash: {
+        displayName: "Trash",
+        imgLoc: "./assets/img/trash-icon.png",
+        useWindow: "trash",
+        isModalVisible: false,
       }
     },
   },
 
   /***** METHODS *****/
   methods: {
-    addWindow() {
-      this.windows += 1;
-    },
     makeDraggable(){
       setTimeout(function () {
         var draggableElems = document.querySelectorAll('.draggable');
@@ -149,9 +227,5 @@ var desktop = new Vue({
         };
     }, 200);
   },
-  setActive(clicked) {
-    active = clicked;
-  }
-
   },
 });

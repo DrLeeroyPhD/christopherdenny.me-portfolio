@@ -180,7 +180,7 @@ var desktop = new Vue({
           </div>
         `
       },
-      Contact: {
+      Email: {
         displayName: "Email",
         imgLoc: "./assets/img/email-icon.png",
         useWindow: "email",

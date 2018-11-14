@@ -14,12 +14,12 @@ function setTime(){
   var minute = currentDate.getMinutes();
 
   // Determine if AM or PM and format by 12-hour clock
-  if(hour > 12) {
-    hour = hour-12;
-  }
-
   if(hour >= 12) {
     amPM = "PM";
+  }
+  
+  if(hour > 12) {
+    hour = hour-12;
   }
 
   // Help format time to turn things like 12:7 -> 12:07

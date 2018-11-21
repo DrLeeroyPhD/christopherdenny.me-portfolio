@@ -137,14 +137,14 @@ var desktop = new Vue({
       Me: {
         displayName: "Me",
         imgLoc: "./assets/img/folder-icon.png",
-        useWindow: "word",
+        windowType: "word",
         isModalVisible: false,
         content: "<p>Hello World, this is my about me section</p>"
       },
       Applets: {
         displayName: "Applets",
         imgLoc: "./assets/img/folder-icon.png",
-        useWindow: "fileExplorer",
+        windowType: "fileExplorer",
         isModalVisible: false,
         content: `
           <h3>Word</h3>
@@ -153,7 +153,7 @@ var desktop = new Vue({
       Portfolio: {
         displayName: "Portfolio",
         imgLoc: "./assets/img/folder-icon.png",
-        useWindow: "fileExplorer",
+        windowType: "fileExplorer",
         isModalVisible: false,
         content: `
           <div class="icon-container">
@@ -183,7 +183,7 @@ var desktop = new Vue({
       Email: {
         displayName: "Email",
         imgLoc: "./assets/img/email-icon.png",
-        useWindow: "email",
+        windowType: "email",
         isModalVisible: false,
         content: `
           <div class="email-window">
@@ -204,7 +204,7 @@ var desktop = new Vue({
       Trash: {
         displayName: "Trash",
         imgLoc: "./assets/img/trash-icon.png",
-        useWindow: "trash",
+        windowType: "fileExplorer",
         isModalVisible: false,
       }
     },

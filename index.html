@@ -28,6 +28,7 @@
           :content="option.content"
           v-if="option.isModalVisible"
           :placeholder="option.displayName"
+          :class="option.windowType"
         >
           <template slot="header">
             {{ option.displayName }}

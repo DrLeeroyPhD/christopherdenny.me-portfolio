@@ -139,7 +139,20 @@ var desktop = new Vue({
         imgLoc: "./assets/img/folder-icon.png",
         windowType: "word",
         isModalVisible: false,
-        content: "<p>Hello World, this is my about me section</p>"
+        clicky: "activateWord()",
+        content: `
+        <textarea name="editor" id="editor">
+          <strong><span style="font-family: cursive">A Little About Myself...</span></strong></br>
+          <strong>Christopher Denny\'s</strong> the name, awesome web development's the game!<br>
+          I started my journey into web development in Middle School, fiddling with HTML and PHPBB. Using that knowledge and much playing with the technology of the time, I ran a forum with over 80 members at the age of 12.<br>
+          That was a big deal to me!<br>
+          Fast Forward to awkward High School Christopher with the ever lingering question of "What are you going to do with your life," I began to take a deeper look at Web Development. The Web had grown so much in that time with so many new languages, HTML had grown up, and there was a new world of possibilities. I started over from scratch, wanting to learn all that I could about HTML and CSS and becoming acclimated with all the new features HTML5 and CSS3 provided.<br>
+          Fascinated by the power now available to me, as Matrix says "What do all people with power want? More power." I had to know more. Javascript, VueJS, React, Sass, jQuery, AngularJS, NodeJS, Drupal, Wordpress, Git, even Jekyll (yeah, I went there)...<br>
+          No language, library, preprocessor, or framework was safe, I desired to learn it all.
+
+
+        </textarea>
+        `
       },
       Applets: {
         displayName: "Applets",

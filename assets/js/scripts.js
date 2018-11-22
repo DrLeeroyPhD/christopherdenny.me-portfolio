@@ -17,7 +17,7 @@ function setTime(){
   if(hour >= 12) {
     amPM = "PM";
   }
-  
+
   if(hour > 12) {
     hour = hour-12;
   }
@@ -79,4 +79,26 @@ function exitFullscreen() {
 		document.webkitExitFullscreen();
 	else if(document.msExitFullscreen)
 		document.msExitFullscreen();
+}
+
+
+/***************************************
+        WYSIWYG EDITOR CALL
+***************************************/
+function activateWord() {
+    setTimeout(function () {
+      CKEDITOR.replace( 'editor', {
+
+			toolbar: [
+
+        [ 'Source', '-', 'Print', 'Maximize', '-', 'NumberedList', 'BulletedList', '-', 'Link', '-' ],
+    		[ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ],
+        '/',
+    		[ 'Font', 'FontSize' ],
+        [ 'Bold', 'Italic', 'Underline' ],
+    		[ 'TextColor', 'BGColor' ],
+
+			]
+		} );
+  }, 5);
 }

@@ -92,6 +92,7 @@ function activateWord() {
 
         resize_enabled: false,
         removePlugins: 'elementspath',
+        height: '90%',
 
       // Determines what tools should be available in the toolbar
 			toolbar: [

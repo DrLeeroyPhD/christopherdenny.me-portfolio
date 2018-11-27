@@ -91,6 +91,10 @@
   height: 100%;
 }
 
+.cke_1_contents, .cke_inner {
+  height: 90% !important;
+}
+
 .word.modal {
   min-width: 400px;
   padding-bottom: 15px;

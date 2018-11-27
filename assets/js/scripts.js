@@ -89,6 +89,11 @@ function activateWord() {
     setTimeout(function () {
       CKEDITOR.replace( 'editor', {
 
+
+        resize_enabled: false,
+        removePlugins: 'elementspath',
+
+      // Determines what tools should be available in the toolbar
 			toolbar: [
 
         [ 'Source', '-', 'Print', 'Maximize', '-', 'NumberedList', 'BulletedList', '-', 'Link', '-' ],

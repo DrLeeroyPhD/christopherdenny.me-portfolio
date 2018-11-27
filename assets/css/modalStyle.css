@@ -28,6 +28,8 @@
 .modal-footer {
   padding: 15px;
   display: flex;
+  min-height: 45px;
+  box-sizing: border-box;
 }
 
 .modal-header {
@@ -39,7 +41,6 @@
   padding-top: 0;
   padding-bottom: 0;
   padding-right: 0;
-
 }
 
 .modal-header h3 {
@@ -85,6 +86,27 @@
 .word p {
   font-family: cursive;
 }
+
+#cke_editor {
+  height: 100%;
+}
+
+.word.modal {
+  min-width: 400px;
+  padding-bottom: 15px;
+}
+
+.word .modal-header {
+  border: none;
+}
+
+.word .modal-body {
+  height: 92%;
+  box-sizing: border-box;
+  margin-top: 0;
+  padding-top: 2px;
+}
+
 
 /***************************************
           PORTFOLIO STYLING

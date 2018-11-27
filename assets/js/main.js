@@ -234,6 +234,7 @@ var desktop = new Vue({
         for ( var i=0; i < draggableElems.length; i++ ) {
           var draggableElem = draggableElems[i];
           var draggie = new Draggabilly( draggableElem, {
+            // Make the header of a modal the handle for dragging the modal
             handle: '.handle'
           });
           draggies.push( draggie );

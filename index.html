@@ -15,7 +15,7 @@
 
         <!-- Desktop Icons -->
         <div v-for="option in desktop" class="icon">
-          <a href="#" @click="makeDraggable(); option.isModalVisible = true;" :click="option.onclick">
+          <a href="#" @click="makeDraggable(); option.isModalVisible = true;" :onclick="option.clicky">
             <img :src="option.imgLoc" alt="">
             <p>{{ option.displayName }}</p>
           </a>
@@ -73,5 +73,6 @@
     <script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/scripts.js"></script>
+    <script src="https://cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
   </body>
 </html>

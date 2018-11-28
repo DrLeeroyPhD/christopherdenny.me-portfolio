@@ -97,6 +97,7 @@
 
 .word.modal {
   min-width: 400px;
+  min-height: 470px;
   padding-bottom: 15px;
 }
 

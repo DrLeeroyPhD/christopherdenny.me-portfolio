@@ -77,9 +77,11 @@ Vue.component('modal-window', {
             </slot>
           </h3>
 
-          <button type="button" class="btn-close" @click="closeModal(thisWindow)" aria-label="Close modal">
-            X
-          </button>
+          <slot name="close">
+            <button type="button" class="btn-close" @click="closeModal(thisWindow)" aria-label="Close modal">
+              X
+            </button>
+          </slot>
 
         </header>
 
@@ -114,6 +116,10 @@ Vue.component('web-browser', {
     change(){
         webBrowserActive = "http://www.christopherdenny.me";
         document.getElementById("web-browser-iframe").src = webBrowserActive;
+    },
+
+    closeBrowser(){
+      desktop.webBrowserOpen = false;
     }
   },
 
@@ -122,6 +128,11 @@ Vue.component('web-browser', {
     <modal-window id="web-browser">
       <template slot="header">
         Web Browser
+      </template>
+      <template slot="close">
+        <button type="button" class="btn-close" @click="closeBrowser()" aria-label="Close modal">
+          X
+        </button>
       </template>
 displayName
       <template slot="body">
@@ -183,21 +194,21 @@ var desktop = new Vue({
         content: `
           <div class="icon-container">
             <div class="icon">
-              <a href="#" @click="webBrowserOpen = true">
+              <a href="#" onclick="openBrowser()">
                 <img src="./assets/img/internet-icon.png" alt="">
                 <p class="icon-in-window">Origami of Code</p>
               </a>
             </div>
 
             <div class="icon">
-              <a href="#" @click="test(HITS)">
+              <a href="#" onclick="openBrowser()">
                 <img src="./assets/img/internet-icon.png" alt="">
                 <p class="icon-in-window">Healthy IT Services</p>
               </a>
             </div>
 
             <div class="icon">
-              <a href="#" @click="test(meh)">
+              <a href="#" onclick="openBrowser()">
                 <img src="./assets/img/internet-icon.png" alt="">
                 <p class="icon-in-window">Origami of Code</p>
               </a>
@@ -237,6 +248,7 @@ var desktop = new Vue({
 
   /***** METHODS *****/
   methods: {
+
     makeDraggable(){
       setTimeout(function () {
         var draggableElems = document.querySelectorAll('.draggable');

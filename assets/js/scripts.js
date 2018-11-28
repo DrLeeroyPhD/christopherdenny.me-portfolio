@@ -108,3 +108,14 @@ function activateWord() {
 		} );
   }, 5);
 }
+
+/***************************************
+        OPEN WEB BROWSER CALL
+***************************************/
+/**
+  Contents object does not seem to take dynamic information like @click, so the function has to be called here
+**/
+function openBrowser(){
+  desktop.webBrowserOpen = true;
+  desktop.makeDraggable();
+}

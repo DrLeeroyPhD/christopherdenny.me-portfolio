@@ -1,12 +1,18 @@
 /***************************************
               COMPONENTS
 ***************************************/
+
+/***************************************
+****************************************
+              MODAL WINDOW
+****************************************
+***************************************/
 Vue.component('modal-window', {
 
   /***** METHODS *****/
   methods: {
-    closeModal(placeholder) {
-      desktop.desktop[placeholder].isModalVisible = false;
+    closeModal(thisWindow) {
+      desktop.desktop[thisWindow].isModalVisible = false;
     },
     focusLevel() {
       console.log(this.levelOfFocus);
@@ -49,7 +55,7 @@ Vue.component('modal-window', {
   },
 
   /***** PROPS *****/
-  props: ['content', 'placeholder'],
+  props: ['content', 'thisWindow'],
 
   /***** TEMPLATE *****/
   template: `
@@ -71,7 +77,7 @@ Vue.component('modal-window', {
             </slot>
           </h3>
 
-          <button type="button" class="btn-close" @click="closeModal(placeholder)" aria-label="Close modal">
+          <button type="button" class="btn-close" @click="closeModal(thisWindow)" aria-label="Close modal">
             X
           </button>
 
@@ -87,8 +93,11 @@ Vue.component('modal-window', {
   `
 });
 
+
 /***************************************
+****************************************
               WEB BROWSER
+****************************************
 ***************************************/
 
 Vue.component('web-browser', {
@@ -124,7 +133,9 @@ displayName
 });
 
 /***************************************
+****************************************
                   VUE
+****************************************
 ***************************************/
 var desktop = new Vue({
   el: '#desktopContainer',
@@ -132,6 +143,7 @@ var desktop = new Vue({
   /***** DATA *****/
   data: {
     open: "",
+    webBrowserOpen: false,
     active: "",
     desktop: {
       Me: {
@@ -171,7 +183,7 @@ var desktop = new Vue({
         content: `
           <div class="icon-container">
             <div class="icon">
-              <a href="#" @click="test(OoC)">
+              <a href="#" @click="webBrowserOpen = true">
                 <img src="./assets/img/internet-icon.png" alt="">
                 <p class="icon-in-window">Origami of Code</p>
               </a>

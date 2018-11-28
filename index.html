@@ -29,7 +29,7 @@
           :ref="option.displayName"
           :content="option.content"
           v-if="option.isModalVisible"
-          :placeholder="option.displayName"
+          :this-window="option.displayName"
         >
           <template slot="header">
             {{ option.displayName }}
@@ -41,7 +41,11 @@
 
         </modal-window>
 
-        <!-- <web-browser></web-browser> -->
+        <web-browser
+          v-if="webBrowserOpen"
+          :active-website="active"
+        >
+        </web-browser>
 
 
       </div> <!-- end desktopContainer -->

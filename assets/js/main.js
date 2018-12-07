@@ -23,6 +23,9 @@ Vue.component('modal-window', {
         this.levelOfFocus = 2;
       }
     },
+    me(me) {
+      console.log(me);
+    }
   },
 
   /***** DATA *****/
@@ -67,7 +70,7 @@ Vue.component('modal-window', {
         v-show="isModalVisible"
         aria-describedby="modalDescription"
         :style="{zIndex: levelOfFocus}"
-        @click="levelOfFocus = 200;"
+        @click="levelOfFocus = 200; me(this)"
         v-clickoutside="blurFocus"
       >
         <header class="modal-header handle">
@@ -114,7 +117,7 @@ Vue.component('web-browser', {
   /***** METHODS *****/
   methods: {
     change(){
-        webBrowserActive = "http://www.christopherdenny.me";
+        webBrowserActive = "https://www.christopherdenny.me";
         document.getElementById("web-browser-iframe").src = webBrowserActive;
     },
 
@@ -244,6 +247,48 @@ var desktop = new Vue({
         isModalVisible: false,
       }
     },
+
+
+
+    /**********************************
+    WINDOWS WINDOWS WINDOWS WINDOWS WIN
+    **********************************/
+
+    windows: {
+
+      // fileExplorer
+      fileExplorer: {
+        applets: {
+
+        },
+
+        trash: {
+
+        }
+      }, // end fileExplorer
+
+      // webBrowser
+      webBrowser: {
+        origami: {
+
+        },
+
+        hits: {
+
+        },
+
+        somethingElse: {
+
+        }
+      }, // end webBrowser
+
+      // textEditor
+      textEditor: {
+        me: {
+
+        }
+      } // end textEditor
+    }
   },
 
   /***** METHODS *****/
